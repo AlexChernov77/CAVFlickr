@@ -51,7 +51,7 @@
 
 - (void)bind:(ImagesModel *) model
 {
-    [self.imageCell sd_setImageWithURL:[NSURL URLWithString:model.largePhotoURL]];
+    [self.imageCell sd_setImageWithURL:[NSURL URLWithString:model.photoURL]];
 }
 
 @end
