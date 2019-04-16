@@ -11,8 +11,12 @@
 #import "CAVSearchImagesViewController.h"
 #import "CAVSearchImagePresenter.h"
 #import "CAVSearchImageInteractor.h"
+#import "CAVDetailImageViewController.h"
+#import "CAVDetailImageAssembly.h"
 
 @interface CAVSearchImagesRouter() <CAVSearchImageRouterProtocol>
+
+@property (weak, nonatomic) UIViewController *rootViewController;
 
 @end
 
@@ -20,7 +24,25 @@
 
 - (void)showDetail:(ImagesModel *)model
 {
-    
+	CAVDetailImageAssembly *vc = [CAVDetailImageAssembly new];
+	
+	[self.rootViewController.navigationController pushViewController:[vc setupSearchImageModule] animated:YES];
+}
+
+- (CAVSearchImagesViewController *)setupSearchImageModule
+{
+	CAVSearchImagesViewController *viewController = [CAVSearchImagesViewController new];
+	CAVSearchImagePresenter *presenter = [CAVSearchImagePresenter new];
+	CAVSearchImageInteractor *interactor = [CAVSearchImageInteractor new];
+	
+	self.rootViewController = viewController;
+	
+	viewController.presenterOutput = presenter;
+	presenter.viewOutput = viewController;
+	presenter.interaptorInput = interactor;
+	presenter.routerDelegate = self;
+	
+	return viewController;
 }
 
 @end

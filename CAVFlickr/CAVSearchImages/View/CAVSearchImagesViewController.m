@@ -104,6 +104,11 @@
     }
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	[self.presenterOutput perfom: indexPath.row];
+}
+
 
 #pragma mark - UISearchBarDelegate
 

@@ -86,6 +86,13 @@
     self.dataSource = @[];
 }
 
+- (void)perfom : (NSInteger) index
+{
+	ImagesModel *model = self.dataSource[index];
+	[self.routerDelegate showDetail: model];
+}
+
+
 
 
 @end

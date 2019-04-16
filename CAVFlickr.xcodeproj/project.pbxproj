@@ -21,8 +21,11 @@
 		1F47CAE02263E901000007EC /* CAVSearchImageInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CADF2263E901000007EC /* CAVSearchImageInteractor.m */; };
 		1F47CAE32263ED07000007EC /* CAVSearchImagePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CAE22263ED07000007EC /* CAVSearchImagePresenter.m */; };
 		1F47CAFA2264C73B000007EC /* CAVSearchImagesRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CAF92264C73B000007EC /* CAVSearchImagesRouter.m */; };
-		1F47CAFD226506D4000007EC /* CAVSearchImagesAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CAFC226506D4000007EC /* CAVSearchImagesAssembly.m */; };
 		7E9C58322265DE2000DA37AE /* SBFTimestampActionBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C58312265DE2000DA37AE /* SBFTimestampActionBlock.m */; };
+		7E9C58362265E81800DA37AE /* CAVDetailImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C58352265E81800DA37AE /* CAVDetailImageViewController.m */; };
+		7E9C583A2265EA4200DA37AE /* CAVDetailImagePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C58392265EA4200DA37AE /* CAVDetailImagePresenter.m */; };
+		7E9C58412265EB3400DA37AE /* CAVDetailImageRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C58402265EB3400DA37AE /* CAVDetailImageRouter.m */; };
+		7E9C58452265EBC900DA37AE /* CAVDetailImageAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C58442265EBC900DA37AE /* CAVDetailImageAssembly.m */; };
 		C0E4B29091EDBF9C66692EBE /* libPods-CAVFlickr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B28ADB2F09A8DD39E613F5CB /* libPods-CAVFlickr.a */; };
 /* End PBXBuildFile section */
 
@@ -58,10 +61,18 @@
 		1F47CAF72264C4B3000007EC /* CAVSearchImageRouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVSearchImageRouterProtocol.h; sourceTree = "<group>"; };
 		1F47CAF82264C73B000007EC /* CAVSearchImagesRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVSearchImagesRouter.h; sourceTree = "<group>"; };
 		1F47CAF92264C73B000007EC /* CAVSearchImagesRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAVSearchImagesRouter.m; sourceTree = "<group>"; };
-		1F47CAFB226506D4000007EC /* CAVSearchImagesAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVSearchImagesAssembly.h; sourceTree = "<group>"; };
-		1F47CAFC226506D4000007EC /* CAVSearchImagesAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAVSearchImagesAssembly.m; sourceTree = "<group>"; };
 		7E9C58302265DE2000DA37AE /* SBFTimestampActionBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBFTimestampActionBlock.h; sourceTree = "<group>"; };
 		7E9C58312265DE2000DA37AE /* SBFTimestampActionBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBFTimestampActionBlock.m; sourceTree = "<group>"; };
+		7E9C58342265E81800DA37AE /* CAVDetailImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVDetailImageViewController.h; sourceTree = "<group>"; };
+		7E9C58352265E81800DA37AE /* CAVDetailImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAVDetailImageViewController.m; sourceTree = "<group>"; };
+		7E9C58382265EA4200DA37AE /* CAVDetailImagePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVDetailImagePresenter.h; sourceTree = "<group>"; };
+		7E9C58392265EA4200DA37AE /* CAVDetailImagePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAVDetailImagePresenter.m; sourceTree = "<group>"; };
+		7E9C583D2265EAED00DA37AE /* CAVDetailImagePresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVDetailImagePresenterProtocol.h; sourceTree = "<group>"; };
+		7E9C583E2265EB1E00DA37AE /* CAVDetailImageRouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVDetailImageRouterProtocol.h; sourceTree = "<group>"; };
+		7E9C583F2265EB3400DA37AE /* CAVDetailImageRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVDetailImageRouter.h; sourceTree = "<group>"; };
+		7E9C58402265EB3400DA37AE /* CAVDetailImageRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAVDetailImageRouter.m; sourceTree = "<group>"; };
+		7E9C58432265EBC900DA37AE /* CAVDetailImageAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVDetailImageAssembly.h; sourceTree = "<group>"; };
+		7E9C58442265EBC900DA37AE /* CAVDetailImageAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAVDetailImageAssembly.m; sourceTree = "<group>"; };
 		A9A7C2CBF5469DD2B8040EC4 /* Pods-CAVFlickr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CAVFlickr.release.xcconfig"; path = "Target Support Files/Pods-CAVFlickr/Pods-CAVFlickr.release.xcconfig"; sourceTree = "<group>"; };
 		B28ADB2F09A8DD39E613F5CB /* libPods-CAVFlickr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CAVFlickr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -99,6 +110,7 @@
 		1F47CAA022611833000007EC /* CAVFlickr */ = {
 			isa = PBXGroup;
 			children = (
+				7E9C58332265E7CF00DA37AE /* CAVDetailImage */,
 				1F47CABF22611891000007EC /* Common */,
 				1F47CABE22611884000007EC /* CAVSearchImages */,
 				1F47CABA22611849000007EC /* System */,
@@ -148,8 +160,6 @@
 			children = (
 				1F47CAF82264C73B000007EC /* CAVSearchImagesRouter.h */,
 				1F47CAF92264C73B000007EC /* CAVSearchImagesRouter.m */,
-				1F47CAFB226506D4000007EC /* CAVSearchImagesAssembly.h */,
-				1F47CAFC226506D4000007EC /* CAVSearchImagesAssembly.m */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -239,6 +249,55 @@
 				A9A7C2CBF5469DD2B8040EC4 /* Pods-CAVFlickr.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7E9C58332265E7CF00DA37AE /* CAVDetailImage */ = {
+			isa = PBXGroup;
+			children = (
+				7E9C58422265EB3E00DA37AE /* Router */,
+				7E9C583C2265EAD100DA37AE /* protocols */,
+				7E9C583B2265EA4B00DA37AE /* Presenter */,
+				7E9C58372265EA2200DA37AE /* view */,
+			);
+			path = CAVDetailImage;
+			sourceTree = "<group>";
+		};
+		7E9C58372265EA2200DA37AE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				7E9C58342265E81800DA37AE /* CAVDetailImageViewController.h */,
+				7E9C58352265E81800DA37AE /* CAVDetailImageViewController.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7E9C583B2265EA4B00DA37AE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				7E9C58382265EA4200DA37AE /* CAVDetailImagePresenter.h */,
+				7E9C58392265EA4200DA37AE /* CAVDetailImagePresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		7E9C583C2265EAD100DA37AE /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E9C583D2265EAED00DA37AE /* CAVDetailImagePresenterProtocol.h */,
+				7E9C583E2265EB1E00DA37AE /* CAVDetailImageRouterProtocol.h */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		7E9C58422265EB3E00DA37AE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				7E9C583F2265EB3400DA37AE /* CAVDetailImageRouter.h */,
+				7E9C58402265EB3400DA37AE /* CAVDetailImageRouter.m */,
+				7E9C58432265EBC900DA37AE /* CAVDetailImageAssembly.h */,
+				7E9C58442265EBC900DA37AE /* CAVDetailImageAssembly.m */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,11 +401,14 @@
 				1F47CAA322611833000007EC /* AppDelegate.m in Sources */,
 				1F47CAB422611834000007EC /* main.m in Sources */,
 				1F47CACB226119F4000007EC /* NetworkHelper.m in Sources */,
-				1F47CAFD226506D4000007EC /* CAVSearchImagesAssembly.m in Sources */,
+				7E9C58412265EB3400DA37AE /* CAVDetailImageRouter.m in Sources */,
+				7E9C58452265EBC900DA37AE /* CAVDetailImageAssembly.m in Sources */,
+				7E9C58362265E81800DA37AE /* CAVDetailImageViewController.m in Sources */,
 				1F47CAE02263E901000007EC /* CAVSearchImageInteractor.m in Sources */,
 				1F47CAAC22611833000007EC /* CAVFlickr.xcdatamodeld in Sources */,
 				1F47CAE32263ED07000007EC /* CAVSearchImagePresenter.m in Sources */,
 				7E9C58322265DE2000DA37AE /* SBFTimestampActionBlock.m in Sources */,
+				7E9C583A2265EA4200DA37AE /* CAVDetailImagePresenter.m in Sources */,
 				1F47CABD22611871000007EC /* CAVSearchImagesViewController.m in Sources */,
 				1F47CAC8226119E0000007EC /* NetworkService.m in Sources */,
 				1F47CAD222612630000007EC /* ImagesModel.m in Sources */,

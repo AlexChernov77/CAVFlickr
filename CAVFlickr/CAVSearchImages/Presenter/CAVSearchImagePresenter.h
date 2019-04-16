@@ -10,12 +10,14 @@
 #import "CAVSearchImagesInteractorProtocol.h"
 #import "CAVSearchImagePresenterProtocol.h"
 #import "CAVSearchImagesViewProtocol.h"
+#import "CAVSearchImageRouterProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CAVSearchImagePresenter : NSObject <CAVSearchImagePresenterOutput>
 
 @property (nonatomic, strong, nullable) id<CAVSearchImagesInteractorInput> interaptorInput;
+@property (nonatomic, strong, nullable) id<CAVSearchImageRouterProtocol> routerDelegate;
 @property (nonatomic, weak, nullable) id<CAVSearchImagesViewProtocol> viewOutput;
 
 @end

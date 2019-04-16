@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CAVSearchImagesViewController.h"
-#import "CAVSearchImagesAssembly.h"
+#import "CAVSearchImagesRouter.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +21,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
-    CAVSearchImagesAssembly *buildModule = [CAVSearchImagesAssembly new];
+    CAVSearchImagesRouter *buildModule = [CAVSearchImagesRouter new];
     
     CAVSearchImagesViewController *viewController = [buildModule setupSearchImageModule];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
