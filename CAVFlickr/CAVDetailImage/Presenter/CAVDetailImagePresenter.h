@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CAVDetailImagePresenterProtocol.h"
+#import "ImagesModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CAVDetailImagePresenter : NSObject
+@interface CAVDetailImagePresenter : NSObject <CAVDetailImagePresenterProtocol>
+
+-(instancetype) initWithImageModel: (ImagesModel *)model;
 
 @end
 

@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ImagesModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol CAVDetailImagePresenterProtocol <NSObject>
+
+-(ImagesModel *)getImageURL;
 
 @end
 

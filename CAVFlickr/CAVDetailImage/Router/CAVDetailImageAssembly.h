@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CAVDetailImageAssembly : NSObject
 
-- (CAVDetailImageViewController *)setupSearchImageModule;
+- (CAVDetailImageViewController *)setupSearchImageModule: (ImagesModel *)model;
 
 @end
 

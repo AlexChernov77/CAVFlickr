@@ -26,7 +26,7 @@
 {
 	CAVDetailImageAssembly *vc = [CAVDetailImageAssembly new];
 	
-	[self.rootViewController.navigationController pushViewController:[vc setupSearchImageModule] animated:YES];
+	[self.rootViewController.navigationController pushViewController:[vc setupSearchImageModule:model] animated:NO];
 }
 
 - (CAVSearchImagesViewController *)setupSearchImageModule

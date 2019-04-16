@@ -8,6 +8,27 @@
 
 #import "CAVDetailImagePresenter.h"
 
+@interface CAVDetailImagePresenter()
+
+@property (strong, nonatomic) ImagesModel *model;
+
+@end
+
 @implementation CAVDetailImagePresenter
+
+
+-(instancetype) initWithImageModel: (ImagesModel *)model
+{
+	if (self = [super init])
+	{
+		_model = model;
+	}
+	return self;
+}
+
+- (ImagesModel *)getImageURL
+{
+	return self.model;
+}
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "CAVDetailImageViewController.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @interface CAVDetailImageViewController ()
 
@@ -30,6 +31,10 @@
 {
 	self.image = [[UIImageView alloc] initWithFrame: self.view.frame];
 	[self.view addSubview:self.image];
+	
+	ImagesModel* model = [self.presenterOutput getImageURL];
+	
+	[self.image sd_setImageWithURL:[NSURL URLWithString:model.largePhotoURL]];
 }
 
 

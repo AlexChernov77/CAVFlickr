@@ -7,13 +7,16 @@
 //
 
 #import "CAVDetailImageAssembly.h"
+#import "CAVDetailImagePresenter.h"
 
 @implementation CAVDetailImageAssembly 
 
-- (CAVDetailImageViewController *)setupSearchImageModule
+- (CAVDetailImageViewController *)setupSearchImageModule: (ImagesModel *)model
 {
 	CAVDetailImageViewController *viewController = [CAVDetailImageViewController new];
-
+	CAVDetailImagePresenter *presenter = [[CAVDetailImagePresenter alloc] initWithImageModel:model];
+	viewController.presenterOutput = presenter;
+	
 	return viewController;
 }
 
