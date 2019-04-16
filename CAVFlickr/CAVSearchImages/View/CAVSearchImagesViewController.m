@@ -129,12 +129,12 @@
 	
     [self.presenterOutput clearData];
     [self.collectionView reloadData];
-	
+
 	dispatch_block_t searchBlock = dispatch_block_create(0, ^{
 		[self.presenterOutput getData:self.pageCount andAmount:20 andSearchString:searchText];
 	});
 	
-	SBFTimestampActionBlock *searchAction = [[SBFTimestampActionBlock alloc] initWithDelay:0.01 actionBlock:searchBlock];
+	SBFTimestampActionBlock *searchAction = [[SBFTimestampActionBlock alloc] initWithDelay:1 actionBlock:searchBlock];
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(searchAction.delay * NSEC_PER_SEC)),
 				   dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
 				   searchAction.actionBlock);
@@ -144,14 +144,11 @@
 
 - (void)cancelSearchAction
 {
-	if ([self.searchAction isAllowedToExecuteForDate:[NSDate date]])
+	if (self.searchAction.actionBlock)
 	{
-		if (self.searchAction.actionBlock)
-		{
-			dispatch_block_cancel(self.searchAction.actionBlock);
-		}
-		self.searchAction = nil;
+		dispatch_block_cancel(self.searchAction.actionBlock);
 	}
+	self.searchAction = nil;
 }
 
 
