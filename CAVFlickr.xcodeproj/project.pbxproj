@@ -22,6 +22,7 @@
 		1F47CAE32263ED07000007EC /* CAVSearchImagePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CAE22263ED07000007EC /* CAVSearchImagePresenter.m */; };
 		1F47CAFA2264C73B000007EC /* CAVSearchImagesRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CAF92264C73B000007EC /* CAVSearchImagesRouter.m */; };
 		1F47CAFD226506D4000007EC /* CAVSearchImagesAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47CAFC226506D4000007EC /* CAVSearchImagesAssembly.m */; };
+		7E9C58322265DE2000DA37AE /* SBFTimestampActionBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C58312265DE2000DA37AE /* SBFTimestampActionBlock.m */; };
 		C0E4B29091EDBF9C66692EBE /* libPods-CAVFlickr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B28ADB2F09A8DD39E613F5CB /* libPods-CAVFlickr.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		1F47CAF92264C73B000007EC /* CAVSearchImagesRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAVSearchImagesRouter.m; sourceTree = "<group>"; };
 		1F47CAFB226506D4000007EC /* CAVSearchImagesAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAVSearchImagesAssembly.h; sourceTree = "<group>"; };
 		1F47CAFC226506D4000007EC /* CAVSearchImagesAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAVSearchImagesAssembly.m; sourceTree = "<group>"; };
+		7E9C58302265DE2000DA37AE /* SBFTimestampActionBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBFTimestampActionBlock.h; sourceTree = "<group>"; };
+		7E9C58312265DE2000DA37AE /* SBFTimestampActionBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBFTimestampActionBlock.m; sourceTree = "<group>"; };
 		A9A7C2CBF5469DD2B8040EC4 /* Pods-CAVFlickr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CAVFlickr.release.xcconfig"; path = "Target Support Files/Pods-CAVFlickr/Pods-CAVFlickr.release.xcconfig"; sourceTree = "<group>"; };
 		B28ADB2F09A8DD39E613F5CB /* libPods-CAVFlickr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CAVFlickr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -134,6 +137,8 @@
 				1F47CAA222611833000007EC /* AppDelegate.m */,
 				1F47CAAD22611834000007EC /* Assets.xcassets */,
 				1F47CAAA22611833000007EC /* CAVFlickr.xcdatamodeld */,
+				7E9C58302265DE2000DA37AE /* SBFTimestampActionBlock.h */,
+				7E9C58312265DE2000DA37AE /* SBFTimestampActionBlock.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				1F47CAE02263E901000007EC /* CAVSearchImageInteractor.m in Sources */,
 				1F47CAAC22611833000007EC /* CAVFlickr.xcdatamodeld in Sources */,
 				1F47CAE32263ED07000007EC /* CAVSearchImagePresenter.m in Sources */,
+				7E9C58322265DE2000DA37AE /* SBFTimestampActionBlock.m in Sources */,
 				1F47CABD22611871000007EC /* CAVSearchImagesViewController.m in Sources */,
 				1F47CAC8226119E0000007EC /* NetworkService.m in Sources */,
 				1F47CAD222612630000007EC /* ImagesModel.m in Sources */,
@@ -479,6 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8BTLC392EH;
 				INFOPLIST_FILE = "$(SRCROOT)/CAVFlickr/System/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,6 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8BTLC392EH;
 				INFOPLIST_FILE = "$(SRCROOT)/CAVFlickr/System/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

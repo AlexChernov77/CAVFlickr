@@ -11,14 +11,17 @@
 #import "DataLayer.h"
 #import "ImagesModel.h"
 #import "CAVSearchImagesRouter.h"
+#import "SBFTimestampActionBlock.h"
 
 @interface CAVSearchImagesViewController () <UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (assign, nonatomic) NSInteger pageCount;
+@property (nonatomic, strong) SBFTimestampActionBlock *searchAction;
 
 @end
+
 
 @implementation CAVSearchImagesViewController
 
@@ -117,11 +120,33 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+	[self cancelSearchAction];
+	
     [self.presenterOutput clearData];
     [self.collectionView reloadData];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.presenterOutput getData:self.pageCount andAmount:20 andSearchString:searchText];
-    });
+	
+	dispatch_block_t searchBlock = dispatch_block_create(0, ^{
+		[self.presenterOutput getData:self.pageCount andAmount:20 andSearchString:searchText];
+	});
+	
+	SBFTimestampActionBlock *searchAction = [[SBFTimestampActionBlock alloc] initWithDelay:0.01 actionBlock:searchBlock];
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(searchAction.delay * NSEC_PER_SEC)),
+				   dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+				   searchAction.actionBlock);
+	
+	self.searchAction = searchAction;
+}
+
+- (void)cancelSearchAction
+{
+	if ([self.searchAction isAllowedToExecuteForDate:[NSDate date]])
+	{
+		if (self.searchAction.actionBlock)
+		{
+			dispatch_block_cancel(self.searchAction.actionBlock);
+		}
+		self.searchAction = nil;
+	}
 }
 
 
