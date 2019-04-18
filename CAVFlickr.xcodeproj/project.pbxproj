@@ -110,9 +110,9 @@
 		1F47CAA022611833000007EC /* CAVFlickr */ = {
 			isa = PBXGroup;
 			children = (
+				1F47CABE22611884000007EC /* CAVSearchImages */,
 				7E9C58332265E7CF00DA37AE /* CAVDetailImage */,
 				1F47CABF22611891000007EC /* Common */,
-				1F47CABE22611884000007EC /* CAVSearchImages */,
 				1F47CABA22611849000007EC /* System */,
 			);
 			path = CAVFlickr;
