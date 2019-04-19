@@ -40,6 +40,8 @@
 {
 	[super viewWillAppear: animated];
 	self.searchBar.text = [self.service getSearchString];
+	[self.presenterOutput getData:self.pageCount andAmount:20 andSearchString:self.searchBar.text];
+	[self.collectionView reloadData];
 }
 
 #pragma mark - Setup & Layouts
@@ -149,11 +151,6 @@
 				   searchAction.actionBlock);
 	
 	self.searchAction = searchAction;
-}
-
-- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
-{
-	
 }
 
 - (void)cancelSearchAction
