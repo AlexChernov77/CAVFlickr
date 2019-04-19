@@ -12,13 +12,16 @@
 #import "ImagesModel.h"
 #import "CAVSearchImagesRouter.h"
 #import "SBFTimestampActionBlock.h"
+#import "CAVNSUserdefaultService.h"
+@import UserNotifications;
 
-@interface CAVSearchImagesViewController () <UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface CAVSearchImagesViewController () <UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UNUserNotificationCenterDelegate>
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (assign, nonatomic) NSInteger pageCount;
 @property (nonatomic, strong) SBFTimestampActionBlock *searchAction;
+@property (nonatomic, strong) CAVNSUserdefaultService *service;
 
 @end
 
@@ -28,10 +31,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	self.service =  [CAVNSUserdefaultService new];
     [self setupSearchBar];
     [self setupCollectionView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear: animated];
+	self.searchBar.text = [self.service getSearchString];
+}
 
 #pragma mark - Setup & Layouts
 
@@ -142,6 +151,11 @@
 	self.searchAction = searchAction;
 }
 
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+{
+	
+}
+
 - (void)cancelSearchAction
 {
 	if (self.searchAction.actionBlock)
@@ -157,6 +171,36 @@
 - (void)reloadData
 {
     [self.collectionView reloadData];
+}
+
+#pragma mark - UNUserNotificationCenterDelegate
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+	   willPresentNotification:(UNNotification *)notification
+		 withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+{
+	
+	
+	[self.service saveSearcString:self.searchBar.text];
+	
+	if (completionHandler)
+	{
+		completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+	}
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+		 withCompletionHandler:(void(^)(void))completionHandler
+{
+	UNNotificationContent *content = response.notification.request.content;
+	
+		[self.service saveSearcString:self.searchBar.text];
+	
+	if (completionHandler)
+	{
+		completionHandler();
+	}
 }
 
 

@@ -9,10 +9,8 @@
 #import "AppDelegate.h"
 #import "CAVSearchImagesViewController.h"
 #import "CAVSearchImagesRouter.h"
+@import UserNotifications;
 
-@interface AppDelegate ()
-
-@end
 
 @implementation AppDelegate
 
@@ -26,9 +24,27 @@
     CAVSearchImagesViewController *viewController = [buildModule setupSearchImageModule];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController = navigationController;
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+	
+	
+	// Получаем текущий notificationCenter
+	UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+	
+	// Устанавливаем делегат
+	center.delegate = viewController;
+	
+	// Указываем тип пушей для работы
+	UNAuthorizationOptions options = UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge;
+	
+	// Запрашиваем доступ на работу с пушами
+	[center requestAuthorizationWithOptions:options
+						  completionHandler:^(BOOL granted, NSError * _Nullable error) {
+							  if (!granted)
+							  {
+								  NSLog(@"Доступ не дали");
+							  }
+						  }];
     
     return YES;
 }
