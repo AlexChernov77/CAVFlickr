@@ -16,6 +16,9 @@
 - (NSInteger)pageCount : (NSInteger) index;
 - (void)clearData;
 - (void)perfom: (NSInteger) index;
+- (NSString *)getSearchString;
+- (void)setSearchString:(NSString *)searchString;
+
 
 @end
 

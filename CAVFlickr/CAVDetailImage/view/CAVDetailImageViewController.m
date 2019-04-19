@@ -11,6 +11,7 @@
 #import "CAVNSUserdefaultService.h"
 @import UserNotifications;
 
+
 @interface CAVDetailImageViewController ()
 
 @property (nonatomic, strong) UIImageView *image;
@@ -27,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 	self.service = [CAVNSUserdefaultService new];
 	[self sheduleLocalNotification];
 	[self setupView];
@@ -36,7 +38,7 @@
 
 #pragma mark - Setup
 
--(void)setupView
+- (void)setupView
 {
 	self.image = [[UIImageView alloc] initWithFrame: self.view.frame];
 	[self.view addSubview:self.image];
@@ -52,7 +54,7 @@
     self.imageContext = [CIContext contextWithOptions:nil];
 }
 
--(void)setupFilterButton
+- (void)setupFilterButton
 {
 	UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithTitle:@"+"
 																  style:UIBarButtonItemStylePlain
@@ -62,7 +64,7 @@
 
 }
 
--(void)addPressed
+- (void)addPressed
 {
 	UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Выберите фильтр" message:nil preferredStyle: UIAlertControllerStyleActionSheet];
 	
@@ -91,7 +93,7 @@
 	[self presentViewController:alert animated:YES completion:nil];
 }
 
--(void)chooseFilter: (UIAlertAction *) action
+- (void)chooseFilter: (UIAlertAction *) action
 {
 	CIImage *image = [[CIImage alloc] initWithImage:self.currentImage];
 	self.filter = [CIFilter filterWithName:action.title];
@@ -101,13 +103,12 @@
 	[self changeFilter];
 }
 
--(void)changeFilter
+- (void)changeFilter
 {
     CIImage *result = [self.filter valueForKey: @"outputImage"];
     CGImageRef cgImageRef = [self.imageContext createCGImage:result fromRect:[result extent]];
     UIImage *targetImage = [UIImage imageWithCGImage:cgImageRef];
-    self.image.image=targetImage;
-
+    self.image.image = targetImage;
 }
 
 
@@ -115,27 +116,10 @@
 
 - (void)sheduleLocalNotification
 {
-	/* Контент - сущность класса UNMutableNotificationContent
-	 Содержит в себе:
-	 title: Заголовок, обычно с основной причиной показа пуша
-	 subtitle: Подзаговолок, не обязателен
-	 body: Тело пуша
-	 badge: Номер бейджа для указания на иконке приложения
-	 sound: Звук, с которым покажется push при доставке. Можно использовать default или установить свой из файла.
-	 launchImageName: имя изображения, которое стоит показать, если приложение запущено по тапу на notification.
-	 userInfo: Кастомный словарь с данными
-	 attachments: Массив UNNotificationAttachment. Используется для включения аудио, видео или графического контента.
-	 */
 	UNMutableNotificationContent *content = [UNMutableNotificationContent new];
 	content.title = @"Напоминание!";
 	content.body = [NSString stringWithFormat:@"Вы давно не искали %@", [self.service getSearchString]];;
 	content.sound = [UNNotificationSound defaultSound];
-	
-	
-	NSDictionary *dict = @{
-						   @"color": @"redColor"
-						   };
-	content.userInfo = dict;
 	
 	// Смотрим разные варианты триггеров
 	UNNotificationTrigger *whateverTrigger = [self intervalTrigger];
@@ -158,7 +142,7 @@
 
 - (UNTimeIntervalNotificationTrigger *)intervalTrigger
 {
-	return [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:NO];
+	return [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:15 repeats:NO];
 }
 
 

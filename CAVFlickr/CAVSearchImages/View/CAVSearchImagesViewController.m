@@ -117,6 +117,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+	[self.service saveSearcString:self.searchBar.text];
 	[self.presenterOutput perfom: indexPath.row];
 }
 
@@ -176,10 +177,6 @@
 	   willPresentNotification:(UNNotification *)notification
 		 withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
 {
-	
-	
-	[self.service saveSearcString:self.searchBar.text];
-	
 	if (completionHandler)
 	{
 		completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
@@ -190,9 +187,8 @@
 didReceiveNotificationResponse:(UNNotificationResponse *)response
 		 withCompletionHandler:(void(^)(void))completionHandler
 {
-	UNNotificationContent *content = response.notification.request.content;
 	
-		[self.service saveSearcString:self.searchBar.text];
+	self.searchBar.text = [self.service getSearchString];
 	
 	if (completionHandler)
 	{

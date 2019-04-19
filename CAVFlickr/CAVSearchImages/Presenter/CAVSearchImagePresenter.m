@@ -13,12 +13,12 @@
 @interface CAVSearchImagePresenter() <CAVSearchImagesInteractorOutput>
 
 @property (strong, nonatomic) NSArray* dataSource;
+@property (nonatomic,strong) NSString* searchString;
 
 @end
 
 
 @implementation CAVSearchImagePresenter
-
 
 
 #pragma mark - CAVSearchImagesInteractorOutput
@@ -28,6 +28,7 @@
     if ( self = [super init])
     {
         _dataSource = [NSArray new];
+		_searchString = @"nature";
     }
     return self;
 }
@@ -92,7 +93,14 @@
 	[self.routerDelegate showDetail: model];
 }
 
+- (NSString *)getSearchString
+{
+	return self.searchString;
+}
 
-
+- (void)setSearchString:(NSString *)searchString
+{
+	_searchString = searchString;
+}
 
 @end
